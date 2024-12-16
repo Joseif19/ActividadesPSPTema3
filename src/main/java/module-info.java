@@ -12,5 +12,5 @@ module com.example.actividadespsptema3 {
     requires com.almasb.fxgl.all;
 
     opens com.example.actividadespsptema3 to javafx.fxml;
-    exports com.example.actividadespsptema3;
+    exports com.example.actividadespsptema3.Actividad3_7;
 }
