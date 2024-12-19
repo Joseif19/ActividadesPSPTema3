@@ -2,6 +2,8 @@ package com.example.actividadespsptema3.Actividad3_8;
 
 import java.io.Serializable;
 
+//clase Persona que implementa Serializable y tiene los atributos nombre y edad con sus getter y setter y un constructor con parametros
+
 public class Persona implements Serializable {
     private static final long serialVersionUID = 1L;
 

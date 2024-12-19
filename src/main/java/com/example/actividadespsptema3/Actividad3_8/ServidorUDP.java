@@ -3,6 +3,8 @@ package com.example.actividadespsptema3.Actividad3_8;
 import java.io.*;
 import java.net.*;
 
+//este programa utiliza sockets UDP y tiene una clase ServidorUDP, otra ClienteUDP y otra Persona. el cliente manda un obejto de Persona al servidor y este lo modifica y se lo manda de vuelta al cliente. se muestran los datos modificados tanto en el cliente como en el servidor
+
 public class ServidorUDP {
     public static void main(String[] args) {
         int puertoServidor = 1111;

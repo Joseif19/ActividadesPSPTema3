@@ -13,36 +13,38 @@ public class Cliente {
 
         try {
             while (true) {
-                System.out.print("Introduce un número (<= 0 para salir): ");
-                int numero = sc.nextInt();
+                //se pide al cliente que introduzca un numero
+                System.out.print("Introduce un número (para salir introduce un número <= 0): ");
+                int n = sc.nextInt();
 
-                if (numero <= 0) {
-                    System.out.println("Número menor o igual a 0. Fin del cliente.");
+                //si el numero es menor o igual que 0 se finaliza el programa
+                if (n <= 0) {
+                    System.out.println("Fin del cliente.");
                     break;
                 }
 
-                // Crear objeto Numeros con el número introducido
+                //se crea un objeto Numeros con el numero que se ha introducido por teclado
                 Numeros numeros = new Numeros();
-                numeros.setNumero(numero);
+                numeros.setN(n);
 
-                // Conexión al servidor
+                //se hace la conexion al servidor
                 Socket socket = new Socket(host, port);
                 ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
                 ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 
-                // Enviar objeto Numeros al servidor
+                //se envia el objeto Numeros al servidor
                 out.writeObject(numeros);
                 out.flush();
 
-                // Recibir objeto modificado del servidor
+                //recibe objeto Numero modificado del servidor
                 Numeros resultado = (Numeros) in.readObject();
 
-                // Mostrar resultados
-                System.out.println("Número: " + resultado.getNumero());
+                //se muestra por pantalla el resultado
+                System.out.println("Número: " + resultado.getN());
                 System.out.println("Cuadrado: " + resultado.getCuadrado());
                 System.out.println("Cubo: " + resultado.getCubo());
 
-                // Cerrar conexiones
+                //se cierran las conexiones
                 in.close();
                 out.close();
                 socket.close();
